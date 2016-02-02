@@ -93,7 +93,7 @@ class submodule{
 
 		$list = $this->db->safesql(implode(", ", $list));
 
-		$delete = $this->db->query("DELETE FROM `mcr_menu` WHERE id IN ($list) AND `parent` IN ($list)");
+		$delete = $this->db->query("DELETE FROM `mcr_menu` WHERE id IN ($list) OR `parent` IN ($list)");
 
 		if(!$delete){ $this->core->notify($this->lng["e_msg"], $this->lng["e_sql_critical"], 2, '?mode=admin&do=menu'); }
 
